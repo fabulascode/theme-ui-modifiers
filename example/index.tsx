@@ -7,7 +7,7 @@ import { Text as RText } from 'rebass';
 import { useModifiers, getVariant } from '../dist';
 
 const TEXT_MODIFIERS = {
-  bold: ({}) => ({ fontWeight: 700 }),
+  bold: { fontWeight: 700 },
   underline: () => ({ textDecoration: 'underline' }),
   bigger: ({ theme, variant }) => {
     const { fontSize } = getVariant(theme, variant);

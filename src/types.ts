@@ -13,7 +13,7 @@ export type ModifierKeys = ModifierNames | ModifierName;
 export type ModifierConfigValue = (props: any) => SystemStyleObject;
 
 export interface ModifiersConfig {
-  [key: string]: ModifierConfigValue;
+  [key: string]: ModifierConfigValue | SystemStyleObject;
 }
 
 export interface UseThemeFunction {
