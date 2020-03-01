@@ -6,7 +6,12 @@ export function useModifiers(args: ApplyModifiersArgs) {
   return (theme: Theme) => {
     let map = {};
     if (typeof modifiers === 'string') {
-      map = config[modifiers](props);
+      const fn = config[modifiers];
+      if (typeof fn === 'function') {
+        map = Object.assign(map, fn({ ...props, theme }));
+      } else if (typeof fn === 'object') {
+        map = Object.assign(map, fn);
+      }
     } else if (Array.isArray(modifiers)) {
       for (const modifier of modifiers) {
         const fn = config[modifier];
